@@ -6,3 +6,6 @@
 :
 
 sensor.csv,3/7/376f843a29ac832bd89e342b233ce8847d628d91
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
