@@ -1,0 +1,19 @@
+beautifulsoup4==4.12.3
+certifi==2024.2.2
+charset-normalizer==3.3.2
+Cython==3.0.10
+filelock==3.14.0
+future==1.0.0
+gdown==5.2.0
+idna==3.7
+numpy==1.24.4
+pbr==6.0.0
+pkg_resources==0.0.0
+PySocks==1.7.1
+requests==2.31.0
+soupsieve==2.5
+testresources==2.0.1
+torch @ file:///home/nvidia/torch-1.13.0a0%2Bgit7c98e70-cp38-cp38-linux_aarch64.whl#sha256=c84ef3c23334b78e62798bd23408f1c26e3ea4bfddf3fd0a082e2f51af1a7761
+tqdm==4.66.4
+typing_extensions==4.11.0
+urllib3==2.2.1
