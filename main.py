@@ -3,6 +3,11 @@ import matplotlib.pyplot as plt
 import torch
 from torch import nn
 
+import logging
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
+
+
 def create_sequences(data, window_size):
     sequences = []
     for i in range(len(data) - window_size):
@@ -38,6 +43,7 @@ class AD:
         self.window_size = 10
         self.linspace = np.linspace(0, 20, self.data_length)
         self.normal_data = np.sin(self.linspace) + np.random.normal(scale=0.5, size=self.data_length)
+        self.normal_data= self.normal_data
 
         self.anormal_data = self.normal_data.copy()
         self.anormal_data[50] += 6  # Anomaly 1
@@ -45,16 +51,17 @@ class AD:
         self.anormal_data[250] += 8  # Anomaly 3
 
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        logger.info('Device: %s', device)
 
         self.model = Autoencoder(10).to(device)
         self.criterion = nn.MSELoss().to(device)
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=1e-3)
 
         self.normal_sequences = create_sequences(self.normal_data, self.window_size)
-        self.normal_sequences = torch.tensor(self.normal_sequences, dtype=torch.float32)
+        self.normal_sequences = torch.tensor(self.normal_sequences, dtype=torch.float32).to(device)
 
         self.anormal_sequences = create_sequences(self.anormal_data, self.window_size)
-        self.anormal_sequences = torch.tensor(self.anormal_sequences, dtype=torch.float32)
+        self.anormal_sequences = torch.tensor(self.anormal_sequences, dtype=torch.float32).to(device)
 
 
 
