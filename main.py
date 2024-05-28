@@ -91,7 +91,7 @@ class AD:
         with torch.no_grad():
             predictions = self.model(self.anormal_sequences)
             losses = torch.mean((predictions - self.anormal_sequences) ** 2, dim=1)
-            if self.device =="cpu":
+            if self.device == "cpu":
                 plt.hist(losses.numpy(), bins=50)
                 plt.xlabel("Loss")
                 plt.ylabel("Frequency")
@@ -104,7 +104,7 @@ class AD:
 
         # Detecting anomalies
         anomalies = losses > threshold
-        print(f"Anomalies found at positions: {np.where(anomalies.numpy())[0]}")
+        print(f"Anomalies found at positions: {np.where(anomalies.cpu().numpy())[0]}")
 
 
 if __name__ == '__main__':
