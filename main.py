@@ -50,18 +50,18 @@ class AD:
         self.anormal_data[150] += 7  # Anomaly 2
         self.anormal_data[250] += 8  # Anomaly 3
 
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        logger.info('Device: %s', device)
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        logger.info('Device: %s', self.device)
 
-        self.model = Autoencoder(10).to(device)
-        self.criterion = nn.MSELoss().to(device)
+        self.model = Autoencoder(10).to(self.device)
+        self.criterion = nn.MSELoss().to(self.device)
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=1e-3)
 
         self.normal_sequences = create_sequences(self.normal_data, self.window_size)
-        self.normal_sequences = torch.tensor(self.normal_sequences, dtype=torch.float32).to(device)
+        self.normal_sequences = torch.tensor(self.normal_sequences, dtype=torch.float32).to(self.device)
 
         self.anormal_sequences = create_sequences(self.anormal_data, self.window_size)
-        self.anormal_sequences = torch.tensor(self.anormal_sequences, dtype=torch.float32).to(device)
+        self.anormal_sequences = torch.tensor(self.anormal_sequences, dtype=torch.float32).to(self.device)
 
 
 
@@ -91,10 +91,11 @@ class AD:
         with torch.no_grad():
             predictions = self.model(self.anormal_sequences)
             losses = torch.mean((predictions - self.anormal_sequences) ** 2, dim=1)
-            plt.hist(losses.numpy(), bins=50)
-            plt.xlabel("Loss")
-            plt.ylabel("Frequency")
-            plt.show()
+            if self.device =="cpu":
+                plt.hist(losses.numpy(), bins=50)
+                plt.xlabel("Loss")
+                plt.ylabel("Frequency")
+                plt.show()
 
         # Threshold for defining an anomaly
 

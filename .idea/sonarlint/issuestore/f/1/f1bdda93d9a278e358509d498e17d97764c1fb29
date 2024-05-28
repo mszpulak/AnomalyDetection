@@ -1,5 +1,5 @@
 
-‰python:S6711-"DUse a "numpy.random.Generator" here instead of this legacy function.(¶«µÓ8Ø½Ìîû1J$8e796c41-8dcd-40a5-9b32-c11f3213864d
-ypython:S1656."/Remove or correct this useless self-assignment.(²ãåùÿÿÿÿ8º†×îû1J$fe9d4c78-7d17-4f51-925c-a03e0b0490c2
-{python:S1481F"1Replace the unused local variable "fig" with "_".(ò…•ûÿÿÿÿ8Ù½Ìîû1J$49dddd99-b129-4377-852e-75ca10de385b
-—python:S6729j"MUse "np.nonzero" when only the condition parameter is provided to "np.where".(ßàïúüÿÿÿÿ8Ú½Ìîû1J$399b5651-1712-436b-820b-12d3caf6de82
+cpython:S6711-"DUse a "numpy.random.Generator" here instead of this legacy function.(¶«µÓ8øûäïû1
+Spython:S1656."/Remove or correct this useless self-assignment.(²ãåùÿÿÿÿ8ùûäïû1
+Upython:S1481F"1Replace the unused local variable "fig" with "_".(ò…•ûÿÿÿÿ8úûäïû1
+qpython:S6729k"MUse "np.nonzero" when only the condition parameter is provided to "np.where".(ßàïúüÿÿÿÿ8úûäïû1
