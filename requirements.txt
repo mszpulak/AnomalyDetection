@@ -17,3 +17,4 @@ torch @ file:///home/nvidia/torch-1.13.0a0%2Bgit7c98e70-cp38-cp38-linux_aarch64.
 tqdm==4.66.4
 typing_extensions==4.11.0
 urllib3==2.2.1
+matplotlib
