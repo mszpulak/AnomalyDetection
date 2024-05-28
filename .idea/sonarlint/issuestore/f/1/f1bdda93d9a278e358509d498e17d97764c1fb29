@@ -1,0 +1,4 @@
+
+‰python:S6711("DUse a "numpy.random.Generator" here instead of this legacy function.(¶«µÓ8º¹ÂÑû1J$4007ad9b-49d1-4cd3-8a0a-1a1c24fbcf63
+{python:S1481?"1Replace the unused local variable "fig" with "_".(ò…•ûÿÿÿÿ8º¹ÂÑû1J$511d0166-dc31-447c-93cb-fadd7a2229de
+—python:S6729c"MUse "np.nonzero" when only the condition parameter is provided to "np.where".(ßàïúüÿÿÿÿ8»¹ÂÑû1J$2b7ebf2a-5db3-4803-9e09-50d10623da31
